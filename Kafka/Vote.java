@@ -32,15 +32,7 @@ public class Vote {
 
     int user;
 
-    public static void main(String arg[]) throws InterruptedException {
-        Vote v = new Vote(1);
-        while (true) {
-            int randVote = ThreadLocalRandom.current().nextInt(1, MAX_PLAYER);
-            Thread.sleep(10000);
-            //System.out.println(v.castVote(randVote));
-            SparkKafkaStreaming.runProducer(v.castVote(randVote));
-        }
-    }
+    
 
     public String castVote(int vote) {
         long currentTime = this.getUnixTime();
